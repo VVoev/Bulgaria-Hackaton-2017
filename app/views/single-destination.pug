@@ -1,0 +1,27 @@
+extends index
+
+block main
+    #banner.page-header
+        .row
+            .col-sm-8.col-sm-offset-2
+                .panel.panel-info
+                    .panel-heading
+                        h1.panel-title.text-center  #{destination.title}
+                    .panel-body
+                        | Description:
+                        .well
+                            |  #{destination.description}
+                    img.img-responsive.img-thumbnail.col-sm-offset-3.profile-pic(src=destination.imagePath)
+
+                    hr
+
+                    each comment in destination.comments
+                        div
+                                p.col-sm-offset-1 #{comment.comment}
+                        hr
+
+                    form(action="/destinations/" + destination.id + "/add-comment" method="post")
+                        legend.col-sm-offset-1 Add a comment
+                        .form-group
+                            textarea#tb-content.form-control(placeholder='Enter your comment', type='text', name="content" rows="3")
+                            input#add-comment-btn.btn.btn-success(type="submit" value="Add comment")

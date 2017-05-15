@@ -1,0 +1,19 @@
+include index
+
+#banner.container
+    .row
+        .col-lg-10
+            .page-header
+                h1 Users
+    .row
+        each user in users
+            .col-md-4
+                .panel.panel-primary
+                    - var url = user.username;
+
+                        .panel-heading
+                            h3.panel-title
+                                a(href="user/" + url) #{user.username}                                
+                               
+                                button.btn.btn-warning.pull-right Challenge
+                                button.btn.btn-success.pull-right Add Friend

@@ -1,0 +1,40 @@
+{
+  "name": "nationaltouristsites",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "postinstall": "bower install",
+    "test": "mocha \"Tests/tests-*/**/*.js\""
+  },
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "bower": "^1.8.0",
+    "chai": "3.5.0",
+    "connect-flash-plus": "^0.2.1",
+    "connect-mongodb-session": "^1.3.0",
+    "connect-roles": "^3.1.2",
+    "content-filter": "^1.0.26",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.14.0",
+    "express-session": "^1.14.2",
+    "global": "4.3.1",
+    "helmet": "^3.1.0",
+    "mocha": "3.1.2",
+    "mongoose": "^4.6.8",
+    "mongoose-paginate": "^5.0.3",
+    "morgan": "~1.7.0",
+    "multer": "^1.2.0",
+    "passport": "0.3.2",
+    "passport-local": "^1.0.0",
+    "pug": "2.0.0-beta6",
+    "serve-favicon": "~2.3.0",
+    "typings": "2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "sinon": "^1.17.6"
+  }
+}

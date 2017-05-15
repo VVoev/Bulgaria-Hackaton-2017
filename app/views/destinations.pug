@@ -1,0 +1,18 @@
+extends index
+
+block main
+    #banner.container
+        .row
+            .col-lg-10
+                .page-header
+                    h1 Destinations
+        .row
+            each destination in destinations
+                .col-lg-6.col-md-7
+                    .panel.panel-primary
+                        - var url = destination._id;
+                            .panel-heading
+                                h3.panel-title
+                                    a(href="/destinations/" + url) #{destination.title}
+                            .panel-body
+                                img.col-sm-offset-2.destination-image.img-responsive.img-thumbnail(src=destination.imagePath)

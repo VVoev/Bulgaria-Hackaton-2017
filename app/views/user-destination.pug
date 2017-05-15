@@ -1,0 +1,18 @@
+extends index
+
+block main
+    #banner.page-header
+        .row
+            .col-sm-8.col-sm-offset-2
+                .panel.panel-info
+                    .panel-heading
+                        h1.panel-title.text-center #{destination.title}
+                    .panel-body
+                        | Description:
+                        .well
+                            |  #{destination.description}
+                    a(href='/destinations/uploadfile')
+                        img.col-sm-offset-3.img-responsive.img-thumbnail.profile-pic(src='../' + destination.imagePath)
+                    form(action="/destinations/" + destination.id enctype="multipart/form-data" method="post")
+                        input.btn(type="file" name="photo" placeholder="Choose File" accept="image/*" required)
+                        input.btn.form-control.btn-success(type="submit" value="Save")

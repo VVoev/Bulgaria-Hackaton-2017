@@ -1,0 +1,63 @@
+extends layout
+
+block content
+    nav.navbar.navbar-fixed-top.navbar-default
+        .container
+                .navbar-header
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+
+                        a.navbar-brand(href='/') National Tourist Sites
+                #navbar.navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    li.active
+                        a(href='/') Home
+                    li.dropdown
+                        a.dropdown-toggle(href='/projects', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                            | Destinations
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href='/destinations') View All Tourist Sites
+                            li
+                                a(href='/destinations/create') Create Tourist Site
+                    li
+                        a(href='/users') Users
+                form.form-inline.navbar-form.navbar-left(action="/search" method="get" role='search')
+                    .form-group
+                        input.form-control(type='text', placeholder='Search' name="s")
+                        select.form-control#select(name="searchType")
+                            option
+                                | Destinations
+                            option
+                                | Users
+                    button.btn.btn-warning.btn-sm(type='submit')
+                        span.glyphicon.glyphicon-search
+                ul.nav.navbar-nav.navbar-right 
+                    if(isAuthenticated())
+                        li
+                            a(href='/profile')
+                                span.glyphicon.glyphicon-user
+                                |   MyProfile                               
+                        li
+                            a(href='/logout')
+                                span.glyphicon.glyphicon-log-out
+                                |   Logout
+                    else
+                        li
+                            a(href='/register')
+                                span.glyphicon.glyphicon-user
+                                |  Sign Up
+                        li
+                            a(href='/login')
+                                span.glyphicon.glyphicon-log-in
+                                |  Login
+    block main
+    footer.footer
+        .container
+            p.text-muted Made by Team Mountain-BoyScouts for Bulgarian Hackathon's Node.js App.
+                a(href="https://github.com/Mountain-Boyscouts/NationalTouristSites") View source
+    block scripts

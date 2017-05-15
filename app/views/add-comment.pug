@@ -1,0 +1,5 @@
+form(action="/destinations/" + _id + "/add-comment" method="post")
+    legend Add a comment
+    .form-group
+        textarea#tb-content.form-control(placeholder='Enter your comment', type='text', name="content" rows="3")
+    input#add-comment-btn.btn.btn-success(type="submit" value="Add comment")

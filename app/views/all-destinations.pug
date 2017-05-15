@@ -1,0 +1,33 @@
+extends index
+
+block main
+    #banner.container
+        .row
+            .col-lg-10
+                .page-header
+                    if(fullName)
+                        h1 #{fullName}'s destinations
+                    else
+                        h1 Destinations
+        .row
+            each destination in destinations
+                .col-lg-4.col-md-5
+                    .panel.panel-primary.text-center
+                        - var url = destination._id;
+                            if(fullName)
+                                .panel-heading
+                                    h3.panel-title
+                                        a(href="user/destinations/" + url) #{destination.title}
+                                .panel-image
+                                    if(destination.complete)
+                                        img(src=`${destination.imagePath}` class="destination-image")
+                                        img(id="badge" src="/public/uploads/badge.png")
+                                    else
+                                        img(src=`${destination.imagePath}` class="destination-image transperant")                                    
+                                        img.hidden(id="badge" src="/public/uploads/badge.png")
+                            else
+                                .panel-heading
+                                    h3.panel-title
+                                        a(href="/destinations/" + url) #{destination.title}
+                                .panel-image
+                                    img(src=`${destination.imagePath}` class="destination-image")
